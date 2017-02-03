@@ -1,9 +1,9 @@
 <?php
 
-$db_ip = "127.0.0.1";
+$db_ip = "20925b91-0409-444e-9f69-1735d49e9274.pdb.ovh.net:21277";
 $db_base = "agenda";
-$db_user = "root";
-$db_pass = "";
+$db_user = "agenda";
+$db_pass = "agenda87";
 
 
 try

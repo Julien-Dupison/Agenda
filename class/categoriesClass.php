@@ -1,5 +1,5 @@
 <?php
-	class categories{
+	class categories implements DatabaseClass {
 
 		public static function selectAll(){
 			global $db;
