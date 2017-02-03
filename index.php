@@ -2,6 +2,7 @@
     session_start();
     if(!isset($_SESSION["id_user"])) header("location:login.php");
 ?>
+<?php include "params.php"?>
 <?php include "database.php"; ?>
 <?php include "class.php"; ?>
 <!DOCTYPE html>

@@ -1,4 +1,6 @@
 <?php
+	include_once "DatabaseClass.php";
+
 	class categories implements DatabaseClass {
 
 		public static function selectAll(){
