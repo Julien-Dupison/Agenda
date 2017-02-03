@@ -227,7 +227,7 @@ function LoadEDT(date){
                     $(this).children().eq(1).html('')
                     $(this).children().eq(2).html('')
                 })
-                addToast("L'emploi du temps n'est pas encore disponible pour cette date", true)
+                addToast("L'emploi du temps n'est pas encore disponible pour cette date", false)
             }
         }
     })
