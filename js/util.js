@@ -13,18 +13,18 @@ function getCurrentDate(){
 	if(mm<10) mm='0'+mm;
 
 	switch(mm){
-		case 01 : M = MArray[0]; break;
-		case 02 : M = MArray[1]; break;
-		case 03 : M = MArray[2]; break;
-		case 04 : M = MArray[3]; break;
-		case 05 : M = MArray[4]; break;
-		case 06 : M = MArray[5]; break;
-		case 07 : M = MArray[6]; break;
-		case 08 : M = MArray[7]; break;
-		case 09 : M = MArray[8]; break;
-		case 10 : M = MArray[9]; break;
-		case 11 : M = MArray[10]; break;
-		case 12 : M = MArray[11]; break;
+		case "01" : M = MArray[0]; break;
+		case "02" : M = MArray[1]; break;
+		case "03" : M = MArray[2]; break;
+		case "04" : M = MArray[3]; break;
+		case "05" : M = MArray[4]; break;
+		case "06" : M = MArray[5]; break;
+		case "07" : M = MArray[6]; break;
+		case "08" : M = MArray[7]; break;
+		case "09" : M = MArray[8]; break;
+		case "10" : M = MArray[9]; break;
+		case "11" : M = MArray[10]; break;
+		case "12" : M = MArray[11]; break;
 	}
 
 	$('#datepicker').val(dd+"/"+M+"/"+yyyy);
@@ -201,23 +201,26 @@ function LoadEDT(date){
         dataType : 'json',
         success:function(data){
             var found = false;
-            $.each(data.GROUPE.PLAGES.SEMAINE.JOUR, function(key, val){
-                if(val.Date == date){
-                    found = true;
-                    $.each(val.CRENEAU, function(key2,val2){
-                        if(val2.Activite == undefined){
-                            val2.Activite = '';
-                        }
+            $.each(data.GROUPE.PLAGES.SEMAINE, function(key, val){
+                $.each(val.JOUR, function(key2,val2){
 
-                        if(val2.Salles == undefined){
-                            val2.Salles = '';
-                        }
-                        $('#edt-creneau-'+key2).children().eq(1).html(val2.Activite)
-                        $('#edt-creneau-'+key2).children().eq(2).html(val2.Salles);
+                    if(val2.Date == date){
+                        found = true;
+                        $.each(val2.CRENEAU, function(key3,val3){
+                            if(val3.Activite == undefined){
+                                val3.Activite = '';
+                            }
 
-                    })
-                    return false;
-                }
+                            if(val3.Salles == undefined){
+                                val3.Salles = '';
+                            }
+                            $('#edt-creneau-'+key3).children().eq(1).html(val3.Activite)
+                            $('#edt-creneau-'+key3).children().eq(2).html(val3.Salles);
+
+                        })
+                        return false;
+                    }
+                })
             })
             if(found == false){
                 $('.edt-creneau').each(function(){

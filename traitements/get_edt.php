@@ -9,7 +9,6 @@ $resultCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
 if($resultCode != 200){
     echo curl_error($ch);
 }
-
 $fileContents = curl_exec($ch);
 $fileContents = str_replace(array("\n", "\r", "\t"), '', $fileContents);
 $fileContents = trim(str_replace('"', "'", $fileContents));
