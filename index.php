@@ -16,6 +16,7 @@
                 <p style="font-size:20px;margin-top:10px;">Evenements :</p>
                 <div class="evenement-container"></div>
             </div>
+            <?php include "parts/chatbox.php";?>
 		</div>
 		<div class="toast-container"></div>
 
@@ -39,5 +40,11 @@
         <script src="js/evenements.js"></script>
 		<script src="js/user-icon.js"></script>
 		<script src="js/index.js"></script>
+
+        <script>
+            $(".chatbox-header").click(function(e){
+                $(this).parent().toggleClass("chatbox-active");
+            })
+        </script>
 	</body>
 </html>
