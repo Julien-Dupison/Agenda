@@ -29,6 +29,7 @@
 		<?php include "parts/list-categorie.php"; ?>
         <?php include "parts/form-add-categorie.php"; ?>
 
+		<!-- Scripts -->
 		<script src="js/jquery.js"></script>
 		<script src="js/jquery-ui.js"></script>
 		<script src="js/datepicker.js"></script>
@@ -38,6 +39,5 @@
         <script src="js/evenements.js"></script>
 		<script src="js/user-icon.js"></script>
 		<script src="js/index.js"></script>
-        <script></script>
 	</body>
 </html>
