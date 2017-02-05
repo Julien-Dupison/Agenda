@@ -2,9 +2,7 @@
     session_start();
     if(!isset($_SESSION["id_user"])) header("location:login.php");
 ?>
-<?php include "params.php"?>
-<?php include "database.php"; ?>
-<?php include "class.php"; ?>
+
 <!DOCTYPE html>
 <html>
 	<head>
@@ -24,6 +22,7 @@
 		<!-- Parts -->
 		<?php include "parts/sidebar.php"; ?>
         <?php include "parts/edt.php"; ?>
+        <?php include "parts/utilisateur.php"; ?>
 		<?php include "parts/user-icon.php"; ?>
 
 		<?php include "parts/form-add-event.php"; ?>
@@ -39,6 +38,7 @@
         <script src="js/evenements.js"></script>
 		<script src="js/user-icon.js"></script>
 		<script src="js/edt.js"></script>
+        <script src="js/utilisateur.js"></script>
 		<script src="js/index.js"></script>
         <script></script>
 	</body>

@@ -1,5 +1,5 @@
 <?php
-
+include "params.php";
 try
 {
 	$db = new PDO('mysql:host='.BD_HOST.':'.BD_PORT.';dbname='.BD_NAME.'', BD_USER, BD_PASSWORD);

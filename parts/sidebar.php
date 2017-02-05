@@ -21,4 +21,8 @@
 		<i class="fa fa-calendar" aria-hidden="true"></i>
 	</div>
 
+    <div class="sidebar-item utilisateur">
+        <i class="fa fa-user" aria-hidden="true"></i>
+    </div>
+
 </div>
