@@ -232,3 +232,22 @@ function LoadEDT(date){
         }
     })
 }
+
+$(".volet-show").click(function(){
+    var voletToShow = '.'+$(this).attr("volet");
+    if(!$(voletToShow).hasClass('volet-active')){
+        $(voletToShow).children(0).delay(1300).fadeIn(200)
+    } else {
+        $(voletToShow).children(0).fadeOut(200)
+    }
+    $(voletToShow).toggleClass('volet-active')
+    if($('.volet-active').size() > 0){
+        $('.page-content').addClass('page-content-reduced');
+    } else {
+        $('.page-content').removeClass('page-content-reduced');
+    }
+    $('.volet-active').not(voletToShow).each(function(){
+        $(this).children(0).fadeOut(200);
+        $(this).removeClass('volet-active');
+    })
+})

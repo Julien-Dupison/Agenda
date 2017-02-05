@@ -37,8 +37,6 @@
 		<script src="js/list-categorie.js"></script>
         <script src="js/evenements.js"></script>
 		<script src="js/user-icon.js"></script>
-		<script src="js/edt.js"></script>
-        <script src="js/utilisateur.js"></script>
 		<script src="js/index.js"></script>
         <script></script>
 	</body>

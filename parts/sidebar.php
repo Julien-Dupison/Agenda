@@ -17,12 +17,12 @@
 		<i class="fa fa-tag" aria-hidden="true"></i>
 	</div>
 
-	<div class="sidebar-item edt">
+	<div class="sidebar-item edt volet-show" volet="edt-wrapper">
 		<i class="fa fa-calendar" aria-hidden="true"></i>
 	</div>
 
-    <div class="sidebar-item utilisateur">
-        <i class="fa fa-user" aria-hidden="true"></i>
+    <div class="sidebar-item utilisateur volet-show" volet="utilisateur-wrapper">
+        <i class="fa fa-users" aria-hidden="true"></i>
     </div>
 
 </div>

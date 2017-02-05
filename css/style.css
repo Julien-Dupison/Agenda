@@ -114,17 +114,7 @@ html, body{
 }
 
 .edt-wrapper{
-    position:fixed;
-    top:0;
-    left:70px;
-    height:100%;
-    width:0px;
-    background-color: #3E3E3E;
-    box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.2);
-    transition: 1.5s cubic-bezier(0.4,-0.21, 0.26, 1.18);
     text-align: center;
-    white-space: nowrap;
-    color: #E7E7E7;
 }
 
 .edt-wrapper-active{
@@ -154,11 +144,11 @@ html, body{
 }
 
 .edt-creneau:nth-child(even){
-    background-color: #5A5A5A;
+    background-color: #4B4B4B;
 }
 
 .edt-creneau:nth-child(odd){
-    background-color: #535353;
+    background-color: #484848;
 }
 
 .edt-creneau:hover{
@@ -557,7 +547,7 @@ html, body{
 	 text-transform: uppercase;
  }
 
-.utilisateur-wrapper{
+.volet{
 	position:fixed;
 	top:0;
 	left:70px;
@@ -566,18 +556,71 @@ html, body{
 	background-color: #3E3E3E;
 	box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.2);
 	transition: 1.5s cubic-bezier(0.4,-0.21, 0.26, 1.18);
-	text-align: center;
 	white-space: nowrap;
 	color: #E7E7E7;
 }
 
-.utilisateur-wrapper-active{
+.volet-active{
 	width:300px;
-	padding-left: 10px;
-	padding-right: 10px;
+	padding: 10px;
 }
 
 .utilisateur-content{
 	display:none;
 	height:100%;
+}
+
+.search-input-group{
+    position: relative;
+    width:calc(100% - 40px);
+    height:30px;
+    margin:10px 20px 30px 20px;
+    background-color: #4B4B4B;
+    border-radius:15px;
+    box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.2);
+    transition:0.2s;
+}
+
+.search-input-group:hover{
+    box-shadow: 0px 3px 5px 3px rgba(0, 0, 0, 0.2);
+}
+
+.search-input{
+    position:relative;
+    border:none;
+    padding:0;
+    width:calc(100% - 45px);
+    height:calc(100% - 8px);
+    margin:4px 0px 4px 15px;
+    outline:none;
+    background-color: inherit;
+    color:inherit;
+}
+
+.search-results-container{
+    position:relative;
+    width:100%;
+    height:auto;
+}
+
+.search-result{
+    position:relative;
+    width:calc(100% - 50px);
+    height:60px;
+    background-color: #4B4B4B;
+    margin:10px 20px;
+    box-shadow: 0px 3px 5px 0px rgba(0, 0, 0, 0.2);
+    transition:0.2s;
+    padding:8px 5px;
+    color: #C4C4C4;
+}
+
+.search-result:hover{
+    box-shadow: 0px 3px 5px 3px rgba(0, 0, 0, 0.2);
+    color:#fff;
+}
+
+.search-result-separator{
+    margin:20px 0;
+    border-color: #828282;
 }
