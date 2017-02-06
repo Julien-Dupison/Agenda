@@ -2,4 +2,4 @@
 include "../database.php";
 include "../class.php";
 
-echo json_encode(categories::selectAll());
+echo json_encode(categoriesClass::selectAll());

@@ -28,4 +28,15 @@ class MatiereClass implements DatabaseClass
         // TODO: Implement delete() method.
     }
 
+    public static function selectWithLibelle($libelle)
+    {
+        global $db;
+        $matches=[];
+        preg_match("/ \\S+$/", $libelle, $matches);
+        $libelle = substr($libelle, 0, -strlen($matches[0]));
+
+        $sql = "SELECT * FROM agenda.matiere WHERE matiere_libelle LIKE ".$db->quote($libelle);
+        return $db->query($sql)->fetch(PDO::FETCH_ASSOC);
+    }
+
 }

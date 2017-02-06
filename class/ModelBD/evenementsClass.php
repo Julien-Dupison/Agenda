@@ -1,5 +1,5 @@
 <?php
-class evenements implements DatabaseClass {
+class evenementsClass implements DatabaseClass {
 
     public static function selectAll(){
         global $db;
