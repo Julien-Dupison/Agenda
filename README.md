@@ -1,3 +1,3 @@
-**Projet Agenda**
+<h1>Projet Agenda</h1>
 
-Réalisé par Julien DUPISON
+Réalisé par **Julien DUPISON** et **Valentin LECOMPTE**
