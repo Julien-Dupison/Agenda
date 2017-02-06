@@ -35,6 +35,7 @@
 		<script src="js/jquery.js"></script>
 		<script src="js/jquery-ui.js"></script>
 		<script src="js/datepicker.js"></script>
+        <script src="js/scrollbar.js"></script>
 		<script src="js/util.js"></script>
 		<script src="js/form-add-event.js"></script>
 		<script src="js/list-categorie.js"></script>
@@ -46,6 +47,11 @@
             $(".chatbox-header").click(function(e){
                 $(this).parent().toggleClass("chatbox-active");
             })
+
+            $(".utilisateur-content").mCustomScrollbar({
+                theme:"light"
+            })
+
         </script>
 	</body>
 </html>

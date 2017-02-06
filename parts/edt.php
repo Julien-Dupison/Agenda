@@ -5,7 +5,7 @@
             <div class="edt-creneau" id="edt-creneau-1">
                 <div class="edt-creneau-horraire">8h30 - 10h00</div>
                 <div class="edt-creneau-matiere"></div>
-                <div class="edt-creneau-professeur">Test</div>
+                <div class="edt-creneau-professeur"></div>
                 <div class="edt-creneau-salle"></div>
             </div>
             <div class="edt-creneau" id="edt-creneau-2">

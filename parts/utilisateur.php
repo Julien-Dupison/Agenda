@@ -20,7 +20,6 @@
                 <span id="user-icon-name">John Doe</span>
                 <span id="user-icon-mail">juliendupison@gmail.com</span>
             </div>
-            <hr class="search-result-separator">
         </div>
     </div>
 </div>
