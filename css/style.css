@@ -186,6 +186,16 @@ html, body{
     font-size:20px;
 }
 
+.edt-creneau-professeur{
+    position: absolute;
+    width:100%;
+    text-align: center;
+    top: 60%;
+    color: #9C9C9C;
+    transition: inherit;
+    font-size:14px;
+}
+
 .edt-creneau-salle{
     position: absolute;
     right: 15px;

@@ -204,9 +204,15 @@ function LoadEDT(date){
         },
         success:function(data){
             data.forEach(function(creneau){
-                console.log($('#edt-creneau-'+creneau.creneau_id));
-                $('#edt-creneau-'+creneau.creneau_numero).children().eq(1).html(creneau.matiere_libelle);
-                $('#edt-creneau-'+creneau.creneau_numero).children().eq(2).html(creneau.Salle);
+                console.log(creneau);
+
+                var content_matiere = creneau.matiere_libelle;
+                if(creneau.type_matiere_libelle != null && creneau.type_matiere_libelle != ""){
+                    content_matiere += " "+creneau.type_matiere_libelle;
+                }
+                $('#edt-creneau-'+creneau.creneau_numero).children().eq(1).html(content_matiere);
+                $('#edt-creneau-'+creneau.creneau_numero).children().eq(2).html(creneau.professeur_acronyme);
+                $('#edt-creneau-'+creneau.creneau_numero).children().eq(3).html(creneau.Salle);
             })
         }
     })
