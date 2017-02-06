@@ -5,7 +5,7 @@ try {
 catch (Exception $e)
 {
     //Le fichier n'existe pas
-    file_put_contents("params.php", file_get_contents("paramsExemple.php"));
+    copy("paramsExemple.php", "params.php");
     include "params.php";
 }
 

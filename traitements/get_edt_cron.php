@@ -30,14 +30,14 @@ $jourModify = array("ajout" => array(), "modifie" => array());
 $creneauModify = array("ajout" => array(), "modifie" => array());
 foreach ($edtCurl->getJour() as $jour) {
     $date = $jour->Date;
-    $jourExists = $edtCurl->jourExists(EdtCurlClass::convertDateForSQL($date));
+    $jourExists = $edtCurl->jourExists(UtilitaireClass::convertDateForSQL($date));
 
     if (!$jourExists)
     {
         print_r("Ajout du jour : ".$jour->Date."\n");
         $jourModify["ajout"][] = $jour;
     }
-    elseif ($edtCurl->isJourModify($jourExists["jour_date"], array("date" => EdtCurlClass::convertDateForSQL($date))))
+    elseif ($edtCurl->isJourModify($jourExists["jour_date"], array("date" => UtilitaireClass::convertDateForSQL($date))))
     {
         print_r("Modification du jour : ".$jour->Date."\n");
         $jourModify["modifie"][] = $jour;

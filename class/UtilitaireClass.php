@@ -28,4 +28,17 @@ class UtilitaireClass
         return false;
     }
 
+    public static function convertDateForSQL($date)
+    {
+        if (preg_match("#\\d{2}/\\d{2}/\\d{4}#", $date))
+        {
+            $elems = explode("/", $date);
+            $date = $elems[2].'-'.$elems[1].'-'.$elems[0];
+        }
+
+        $dateTime = new DateTime($date);
+
+        return $dateTime->format("Y-m-d H:i:s");
+    }
+
 }

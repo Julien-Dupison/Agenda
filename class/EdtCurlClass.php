@@ -35,7 +35,6 @@ class EdtCurlClass
 
     public function creneauExists($idJour, $nbCreneau)
     {
-        var_dump(CreneauClass::selectAllJour($idJour));
         foreach (CreneauClass::selectAllJour($idJour) as $creneau) {
             if ($creneau["creneau_numero"] == $nbCreneau)
             {
@@ -119,8 +118,17 @@ class EdtCurlClass
         foreach ($creneaux as $creneau) {
             if (!isset($creneau->Activite))
                 continue;
-            $matiereBD = MatiereClass::selectWithLibelle($creneau->Activite);
-            $idMatiere = ($matiereBD === false or sizeof($matiereBD) == 0)?null:$matiereBD["matiere_id"];
+            $matiereBD = MatiereClass::selectWithLibelle((string)$creneau->Activite);
+            if ($matiereBD === false or sizeof($matiereBD) == 0)
+            {
+                print_r("Ajout d'une matière : ".$creneau->Activite."\n");
+                MatiereClass::add(array((string)$creneau->Activite));
+                $matiereBD = MatiereClass::selectWithLibelle((string)$creneau->Activite);
+                $idMatiere = $matiereBD["matiere_id"];
+            }
+            else {
+                $idMatiere = $matiereBD["matiere_id"];
+            }
 
             $typeBD = TypeMatiereClass::selectWithAcronyme(TypeMatiereClass::getAcronymeFromLibelle($creneau->Activite));
             $idType = ($typeBD === false or sizeof($typeBD) == 0)?null:$typeBD["type_matiere_id"];
@@ -128,7 +136,7 @@ class EdtCurlClass
             $jourBD = JourClass::selectWithDate(self::convertDateForSQL($creneau->xpath("./..")[0]->Date));
             $idJour = ($jourBD === false or sizeof($jourBD) == 0)?null:$jourBD["jour_id"];
 
-            CreneauClass::add(array("numero" => $creneau->Creneau, "salle"=> $creneau->Salles, "matiere_id" => $idMatiere, "jour_id" => $idJour, "type_matiere_id" => $idType));
+            CreneauClass::add(array($idMatiere, $idJour, $idType, (string)$creneau->Creneau, (string)$creneau->Salles));
         }
     }
 

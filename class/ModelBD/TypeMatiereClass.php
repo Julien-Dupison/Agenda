@@ -30,7 +30,9 @@ class TypeMatiereClass implements DatabaseClass
     public static function getAcronymeFromLibelle($libelle)
     {
         preg_match("/ \\S+$/", $libelle, $matches);
-        return str_replace(' ', '', substr($libelle, -strlen($matches[0]), 0));
+        $acro = str_replace(' ', '', substr($libelle, -strlen($matches[0]), 0));
+        print_r("Acro trouvé : ".$acro."\n");
+        return $acro;
     }
 
     public static function selectWithAcronyme($acro)
@@ -38,6 +40,7 @@ class TypeMatiereClass implements DatabaseClass
         global $db;
 
         $sql = "SELECT * FROM agenda.type_matiere WHERE type_matiere_acronyme = ".$db->quote($acro);
+        print_r($sql."\n");
         return $db->query($sql)->fetch(PDO::FETCH_ASSOC);
     }
 

@@ -37,17 +37,23 @@ class CreneauClass implements DatabaseClass
         global $db;
 
         $sql = "SELECT * FROM agenda.creneau WHERE creneau_id = ".$db->quote($id);
-        return $db->query($sql)->fetch(PDO::FETCH_ASSOC);
+        return $db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     }
-
-
 
     public static function add($params)
     {
         global $db;
 
-        $sql = "INSERT INTO agenda.creneau(matiere_id, jour_id,type_matiere_id, creneau_numero, Salle) VALUES (".$params["matiere_id"].", ".$params["jour_id"].", ".$params["type_matiere_id"].", ".$params["numero"].", ".$params["salle"].")";
-        return $req = $db->query($sql);
+        $sql = "INSERT INTO agenda.creneau(matiere_id, jour_id,type_matiere_id, creneau_numero, Salle) VALUES (?,?,?,?,?)";
+        $req = $db->prepare($sql)->execute($params);
+        if ($req)
+        {
+            print_r("Créneau ajouté : ".print_r($params, true)."\n\n");
+        }
+        else{
+            print_r("Créneau non ajouté : ".print_r($params, true)."\n\n");
+        }
+        return $req;
     }
 
     public static function edit($params)

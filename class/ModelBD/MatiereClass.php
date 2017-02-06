@@ -15,7 +15,10 @@ class MatiereClass implements DatabaseClass
 
     public static function add($params)
     {
-        // TODO: Implement add() method.
+        global $db;
+
+        $sql = "INSERT INTO agenda.matiere(matiere_libelle) VALUES (?)";
+        return $db->prepare($sql)->execute($params);
     }
 
     public static function edit($params)
@@ -36,6 +39,14 @@ class MatiereClass implements DatabaseClass
         $libelle = substr($libelle, 0, -strlen($matches[0]));
 
         $sql = "SELECT * FROM agenda.matiere WHERE matiere_libelle LIKE ".$db->quote($libelle);
+        return $db->query($sql)->fetch(PDO::FETCH_ASSOC);
+    }
+
+    public static function selectWithAllLibelle($libelle)
+    {
+        global $db;
+
+        $sql = "SELECT * FROM agenda.matiere WHERE matiere_libelle LIKE ". $db->quote($libelle);
         return $db->query($sql)->fetch(PDO::FETCH_ASSOC);
     }
 
