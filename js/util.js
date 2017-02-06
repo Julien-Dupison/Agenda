@@ -205,7 +205,7 @@ function LoadEDT(date){
         success:function(data){
             data.forEach(function(creneau){
                 console.log($('#edt-creneau-'+creneau.creneau_id));
-                $('#edt-creneau-'+creneau.creneau_numero).children().eq(1).html(creneau.matiere_id);
+                $('#edt-creneau-'+creneau.creneau_numero).children().eq(1).html(creneau.matiere_libelle);
                 $('#edt-creneau-'+creneau.creneau_numero).children().eq(2).html(creneau.Salle);
             })
         }
