@@ -8,7 +8,7 @@ class CreneauClass implements DatabaseClass
         global $db;
 
         $sql = "SELECT * FROM agenda.creneau";
-        return $db->query($sql)->fetch(PDO::FETCH_ASSOC);
+        return $db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public static function selectAllJour($idJour)
@@ -16,7 +16,7 @@ class CreneauClass implements DatabaseClass
         global $db;
 
         $sql = "SELECT * FROM agenda.creneau WHERE jour_id = ".$db->quote($idJour);
-        return $db->query($sql)->fetch(PDO::FETCH_ASSOC);
+        return $db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
     }
 
     public static function select($id)

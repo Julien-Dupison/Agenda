@@ -197,38 +197,17 @@ function LoadEvenement(date){
 function LoadEDT(date){
     $.ajax({
         url:'traitements/get_edt.php',
-        method:'GET',
+        method:'POST',
         dataType : 'json',
+        data : {
+            date:date,
+        },
         success:function(data){
-            var found = false;
-            $.each(data.GROUPE.PLAGES.SEMAINE, function(key, val){
-                $.each(val.JOUR, function(key2,val2){
-
-                    if(val2.Date == date){
-                        found = true;
-                        $.each(val2.CRENEAU, function(key3,val3){
-                            if(val3.Activite == undefined){
-                                val3.Activite = '';
-                            }
-
-                            if(val3.Salles == undefined){
-                                val3.Salles = '';
-                            }
-                            $('#edt-creneau-'+key3).children().eq(1).html(val3.Activite)
-                            $('#edt-creneau-'+key3).children().eq(2).html(val3.Salles);
-
-                        })
-                        return false;
-                    }
-                })
+            data.forEach(function(creneau){
+                console.log($('#edt-creneau-'+creneau.creneau_id));
+                $('#edt-creneau-'+creneau.creneau_numero).children().eq(1).html(creneau.matiere_id);
+                $('#edt-creneau-'+creneau.creneau_numero).children().eq(2).html(creneau.Salle);
             })
-            if(found == false){
-                $('.edt-creneau').each(function(){
-                    $(this).children().eq(1).html('')
-                    $(this).children().eq(2).html('')
-                })
-                addToast("L'emploi du temps n'est pas encore disponible pour cette date", false)
-            }
         }
     })
 }
