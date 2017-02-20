@@ -1,13 +1,18 @@
 <?php
+    include "../database.php";
+    include "../class.php";
+
     session_start();
-    $login = $_POST["login"];
+    $username = $_POST["username"];
     $password = $_POST["password"];
 
-    //TODO : recupérer l'id de l'utilisateur en base et remplir la session
+    $user = UtilisateurClass::search($username,$password);
 
-    $_SESSION["id_user"] = 1;
-    $return = array("status" => "true");
+    if($user){
+        $_SESSION["id_user"] = $user["utilisateur_id"];
+        $return = array("status" => true);
+    } else {
+        $return = array("status" => false);
+    }
 
     echo json_encode($return);
-
-?>

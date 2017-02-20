@@ -22,6 +22,10 @@
 	</div>
 
     <div class="sidebar-item utilisateur volet-show" volet="utilisateur-wrapper">
+        <i class="fa fa-search" aria-hidden="true"></i>
+    </div>
+
+    <div class="sidebar-item friend volet-show" volet="friend-wrapper">
         <i class="fa fa-users" aria-hidden="true"></i>
     </div>
 

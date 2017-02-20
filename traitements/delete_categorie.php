@@ -2,4 +2,4 @@
 include "../database.php";
 include "../class.php";
 
-categoriesClass::delete($_POST['id']);
+CategoriesClass::delete($_POST['id']);

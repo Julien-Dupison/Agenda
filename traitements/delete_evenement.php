@@ -2,4 +2,4 @@
 include "../database.php";
 include "../class.php";
 
-evenementsClass::delete(($_POST['id']));
+EvenementsClass::delete(($_POST['id']));

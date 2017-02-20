@@ -1,6 +1,6 @@
 <?php
 
-	class categoriesClass implements DatabaseClass {
+	class CategoriesClass implements DatabaseClass {
 
 		public static function selectAll(){
 			global $db;

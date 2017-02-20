@@ -236,3 +236,27 @@ $(".volet-show").click(function(){
         $(this).removeClass('volet-active');
     })
 })
+
+var typingTimer;
+var doneTypingInterval = 300;
+
+$('#searchUtilisateur').keyup(function(){
+    var search = $(this).val();
+    clearTimeout(typingTimer)
+    if (search) {
+        typingTimer = setTimeout(function(){
+            $.ajax({
+                url:"traitements/getAll_utilisateur.php?search="+search,
+                method:"GET",
+                dataType:"json",
+            }).done(function(data){
+                $('.search-results-container').html('')
+                data.forEach(function(result){
+                    $('.search-results-container').append("<div class='search-result'><img id='user-icon-profile-image' src='images/profilepicture.png'><span id='user-icon-name'>"+result.utilisateur_prenom+" "+result.utilisateur_nom+"</span> <span id='user-icon-mail'>"+result.utilisateur_mail+"</span></div>")
+                })
+            })
+        }, doneTypingInterval)
+    } else {
+        $('.search-results-container').html('')
+    }
+});

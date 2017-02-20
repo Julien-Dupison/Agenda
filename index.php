@@ -25,6 +25,7 @@
 		<?php include "parts/sidebar.php"; ?>
         <?php include "parts/edt.php"; ?>
         <?php include "parts/utilisateur.php"; ?>
+        <?php include "parts/friend.php"; ?>
 		<?php include "parts/user-icon.php"; ?>
 
 		<?php include "parts/form-add-event.php"; ?>
