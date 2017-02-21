@@ -25,7 +25,7 @@
 		<?php include "parts/sidebar.php"; ?>
         <?php include "parts/edt.php"; ?>
         <?php include "parts/utilisateur.php"; ?>
-        <?php include "parts/friend.php"; ?>
+        <?php include "parts/contact.php"; ?>
 		<?php include "parts/user-icon.php"; ?>
 
 		<?php include "parts/form-add-event.php"; ?>
@@ -37,22 +37,13 @@
 		<script src="js/jquery-ui.js"></script>
 		<script src="js/datepicker.js"></script>
         <script src="js/scrollbar.js"></script>
-		<script src="js/util.js"></script>
+        <script src="js/tooltipster.core.min.js"></script>
+        <script src="js/tooltipster.bundle.min.js"></script>
+        <script src="js/util.js"></script>
 		<script src="js/form-add-event.js"></script>
 		<script src="js/list-categorie.js"></script>
         <script src="js/evenements.js"></script>
 		<script src="js/user-icon.js"></script>
 		<script src="js/index.js"></script>
-
-        <script>
-            $(".chatbox-header").click(function(e){
-                $(this).parent().toggleClass("chatbox-active");
-            })
-
-            $(".utilisateur-content").mCustomScrollbar({
-                theme:"light"
-            })
-
-        </script>
 	</body>
 </html>

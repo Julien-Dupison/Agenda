@@ -180,7 +180,7 @@ function LoadEvenement(date){
         success:function(data){
             $('.evenement-container').fadeOut(200,function(){
                 $(this).html('');
-                $.get('parts/evenement.html',function(evenementHTML){
+                $.get('parts/evenement.php',function(evenementHTML){
                     $.each(data,function(i,val){
                         $('.evenement-container').append(evenementHTML)
                         $('.evenement-container').children().last().attr('data_id',val.evenement_id)
@@ -251,9 +251,20 @@ $('#searchUtilisateur').keyup(function(){
                 dataType:"json",
             }).done(function(data){
                 $('.search-results-container').html('')
+
                 data.forEach(function(result){
-                    $('.search-results-container').append("<div class='search-result'><img id='user-icon-profile-image' src='images/profilepicture.png'><span id='user-icon-name'>"+result.utilisateur_prenom+" "+result.utilisateur_nom+"</span> <span id='user-icon-mail'>"+result.utilisateur_mail+"</span></div>")
+                    $('.search-results-container').append('<div class="search-result"> <div class="search-result-content"> <img id="user-icon-profile-image" src="images/profilepicture.png"> <span id="user-icon-name">'+result.utilisateur_nom+" "+result.utilisateur_prenom+'</span><span id="user-icon-mail">'+result.utilisateur_mail+'</span></div><div class="search-result-icon"><i class="fa fa-user tooltip" title="Vous êtes amis"></i> <i class="fa fa-suitcase tooltip" title="Vous êtes dans la même classe"></i><i class="fa fa-university tooltip" title="Vous êtes dans la même promotion"></i></div></div>')
                 })
+
+                $('.search-results-container').find(".tooltip").each(function(){
+                    $(this).tooltipster({
+                        theme: ['tooltipster-borderless', 'tooltipster-borderless-customized'],
+                        position:'right',
+                        offsetX:20,
+                        arrow:false,
+                    });
+                })
+
             })
         }, doneTypingInterval)
     } else {
